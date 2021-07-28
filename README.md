@@ -1,3 +1,3 @@
-# angular-9-registration-login-example
+# angular-9-registration-login-poc
 
-Angular 9 - User Registration and Login Example
+Angular 9 - User Registration and Login POC
