@@ -2,6 +2,7 @@
 import { first } from 'rxjs/operators';
 
 import { AccountService } from '@app/_services';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({ templateUrl: 'list.component.html' })
 export class ListComponent implements OnInit {
@@ -9,7 +10,7 @@ export class ListComponent implements OnInit {
     isAdmin = false;
     loggedUser = null;
 
-    constructor(private accountService: AccountService) {}
+    constructor(private accountService: AccountService, public dialog: MatDialog) {}
 
     ngOnInit() {
         this.loggedUser = JSON.parse(localStorage.getItem('user'));
@@ -34,6 +35,10 @@ export class ListComponent implements OnInit {
     // }
 
     deleteUser(id: string) {
+        const dialogRef = this.dialog.open(DeleteDialog, {
+            width: '500px',})
+
+
         const user = this.users.find(x => x.id === id);
         user.isDeleting = true;
         this.accountService.delete(id)
@@ -55,3 +60,18 @@ export class ListComponent implements OnInit {
         { make: 'Porsche', model: 'Boxter', price: 72000 }
     ];
 }
+
+@Component({
+    selector: 'delete-dialog',
+    templateUrl: 'delete-dialog.html',
+  })
+  export class DeleteDialog {
+  
+    constructor(
+      public dialogRef: MatDialogRef<DeleteDialog>) {}
+  
+    onNoClick(): void {
+      this.dialogRef.close();
+    }
+  
+  }

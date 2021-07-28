@@ -12,6 +12,9 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AppComponent } from './app.component';
 import { AlertComponent } from './_components';
 import { HomeComponent } from './home';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DeleteDialog } from './users/list.component';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
     imports: [
@@ -21,6 +24,9 @@ import { HomeComponent } from './home';
         AppRoutingModule,
         BrowserAnimationsModule,
         FormsModule,
+        MatDialogModule,
+        MatButtonModule
+        
     ],
     declarations: [
         AppComponent,
@@ -38,6 +44,7 @@ import { HomeComponent } from './home';
         // provider used to create fake backend
         fakeBackendProvider
     ],
+    
     bootstrap: [AppComponent]
 })
 export class AppModule { };
