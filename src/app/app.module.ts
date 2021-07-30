@@ -13,8 +13,8 @@ import { AppComponent } from './app.component';
 import { AlertComponent } from './_components';
 import { HomeComponent } from './home';
 import {MatDialogModule} from '@angular/material/dialog';
-import { DeleteDialog } from './users/list.component';
-import {MatButtonModule} from '@angular/material/button';
+import {MatButtonModule} from '@angular/material/button';;
+import { ConfirmationDialogComponent } from './_components/confirmation-dialog/confirmation-dialog.component'
 
 @NgModule({
     imports: [
@@ -32,6 +32,7 @@ import {MatButtonModule} from '@angular/material/button';
         AppComponent,
         AlertComponent,
         HomeComponent,
+        ConfirmationDialogComponent
     ],
     schemas: [
         CUSTOM_ELEMENTS_SCHEMA,

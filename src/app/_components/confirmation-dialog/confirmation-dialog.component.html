@@ -1,0 +1,8 @@
+<!-- <h1 mat-dialog-title><i class="material-icons float-right" style="cursor: pointer;" (click)="onNoClick()">clear</i></h1> -->
+<div mat-dialog-content>
+    {{message}}
+</div>
+<div mat-dialog-actions class="float-right mb-2">
+    <button mat-raised-button color="warn" (click)="onNoClick()">No</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Yes</button>
+</div>

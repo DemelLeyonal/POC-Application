@@ -4,29 +4,28 @@ import { CommonModule } from '@angular/common';
 
 import { UsersRoutingModule } from './users-routing.module';
 import { LayoutComponent } from './layout.component';
-import { DeleteDialog, ListComponent } from './list.component';
+import { ListComponent } from './list.component';
 import { AddEditComponent } from './add-edit.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { AgGridComponent } from './ag-grid/ag-grid.component';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatButtonModule} from '@angular/material/button';
+import { GridApi, GridOptionsWrapper } from 'ag-grid-community';
 
 @NgModule({
     imports: [
         CommonModule,
         ReactiveFormsModule,
         UsersRoutingModule,
-        MatDialogModule,
-        MatButtonModule,
         AgGridModule.withComponents([])
     ],
     declarations: [
         LayoutComponent,
         ListComponent,
         AddEditComponent,
-        AgGridComponent,
-        DeleteDialog
+        AgGridComponent
     ],
-    entryComponents: [ DeleteDialog ],
+    providers: [
+        GridApi,
+        GridOptionsWrapper
+    ]
 })
 export class UsersModule { }
